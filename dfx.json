@@ -1,0 +1,30 @@
+{
+  "canisters": {
+    "icp_licence_decentralize_backend": {
+      "build": "npx azle icp_licence_decentralize_backend",
+      "candid": "src/icp_licence_decentralize_backend/icp_licence_decentralize_backend.did",
+      "gzip": true,
+      "main": "src/icp_licence_decentralize_backend/src/index.ts",
+      "type": "custom",
+      "wasm": ".azle/icp_licence_decentralize_backend/icp_licence_decentralize_backend.wasm"
+    },
+    "icp_licence_decentralize_frontend": {
+      "dependencies": [
+        "icp_licence_decentralize_backend"
+      ],
+      "source": [
+        "src/icp_licence_decentralize_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "icp_licence_decentralize_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
