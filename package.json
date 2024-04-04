@@ -15,5 +15,9 @@
   "workspaces": [
     "src/icp_licence_decentralize_backend",
     "src/icp_licence_decentralize_frontend"
-  ]
+  ],
+  "dependencies": {
+    "hashcode": "^1.0.3",
+    "uuid": "^9.0.1"
+  }
 }

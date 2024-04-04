@@ -23,3 +23,7 @@ dist/
 
 # environment variables
 .env
+.azle
+
+ledger.did
+ledger-canister.wasm

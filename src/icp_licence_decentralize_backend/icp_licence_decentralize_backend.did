@@ -1,3 +1,7 @@
-service : {
-    "greet" : (text) -> (text) query;
+service: () -> {
+    createLicence: (record {tag:vec text; licence_name:text; licence_description:text; grade:variant {A:text; B:text; C:text; D:text; E:text}; price:nat64}) -> (variant {Ok:variant {Error:text; InvalidPayload:text; NotFound:text; Success:text}; Err:variant {Error:text; InvalidPayload:text; NotFound:text; Success:text}});
+    createUser: (text) -> (variant {Ok:text; Err:variant {Error:text; InvalidPayload:text; NotFound:text; Success:text}});
+    getLicence: (record {tag:vec text; start:int8; length:int8; keyword:text}) -> (variant {Ok:vec record {tag:vec text; status:variant {Failed:text; Active:text; Defaulted:text; Completed:text; Unactive:text; Expired:text}; licence_name:text; publisher:text; licence_description:text; credentialId:text; grade:variant {A:text; B:text; C:text; D:text; E:text}; holder:nat64; price:nat64}; Err:text}) query;
+    getLicenceOrder: () -> (vec record {status:variant {PaymentFailed:text; PaymentPending:text; PaymentCompleted:text}; applicant:principal; memo:nat64; orderId:text; amount:nat64; paid_at_block:opt nat64; product:text}) query;
+    requestLicence: (text, nat64) -> (variant {Ok:record {status:variant {PaymentFailed:text; PaymentPending:text; PaymentCompleted:text}; applicant:principal; memo:nat64; orderId:text; amount:nat64; paid_at_block:opt nat64; product:text}; Err:text});
 }
